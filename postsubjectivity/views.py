@@ -42,8 +42,8 @@ def home(request):
 			new_A.logins = 1
 			new_A.save()
 			current_A = new_A
-		latest_habla=Habla.objects.order_by('-id')[0:20]
-		latest_habla=list(reversed(latest_habla))[0:20]
+		latest_habla=Habla.objects.order_by('-id')[0:3]
+		latest_habla=list(reversed(latest_habla))[0:3]
 		show_habla=[(h.text, h.date) for h in latest_habla]
 		context={"alias":current_A, "habla":show_habla}
 		return render(request, "home.html", context)
@@ -76,14 +76,14 @@ def contribute(request, alias_id):
 		new_H.date = datetime.now(tz)
 		new_H.alias = current_A
 		new_H.save()
-		latest_habla=Habla.objects.order_by('-id')[0:20]
-		latest_habla=list(reversed(latest_habla))[0:20]
+		latest_habla=Habla.objects.order_by('-id')[0:3]
+		latest_habla=list(reversed(latest_habla))[0:3]
 		show_habla=[(h.text, h.date) for h in latest_habla]
 		context={"alias":current_A, "habla":show_habla}
 		return render(request, "home.html", context)
 	except:
-		latest_habla=Habla.objects.order_by('-id')[0:20]
-		latest_habla=list(reversed(latest_habla))[0:20]
+		latest_habla=Habla.objects.order_by('-id')[0:3]
+		latest_habla=list(reversed(latest_habla))[0:3]
 		show_habla=[(h.text, h.date) for h in latest_habla]
 		context={"alias":current_A, "habla":show_habla}
 		return render(request, "home.html", context)
