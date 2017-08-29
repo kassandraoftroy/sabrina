@@ -50,6 +50,9 @@ def home(request):
 	except:	
 		return render(request, "enter.html")
 
+def home_view(request):
+	return render(request, "home_view_only.html")
+
 def contribute(request, alias_id):
 	try:
 		current_A = Alias.objects.get(id=alias_id)
@@ -94,10 +97,10 @@ def incarnations(request, alias_id):
 	context={"aliases":aliases, "user":user}
 	return render(request, "incarnations.html", context)
 
-def latidos(request, alias_id):
+def heartbeats(request, alias_id):
 	return HttpResponse("ok")
 
-def oficial(request, alias_id):
+def official(request, alias_id):
 	return HttpResponse("ok")
 
 
