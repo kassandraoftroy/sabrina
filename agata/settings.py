@@ -26,7 +26,7 @@ with open('agata/item.txt') as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "postsubjectivity.herokuapp.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "postsubjectivity.herokuapp.com", "www.postsubjectivity.com"]
 
 
 # Application definition
