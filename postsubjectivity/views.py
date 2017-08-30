@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.http import HttpResponse
-from models import Alias, Habla
+from models import Alias, Habla, Beat
 from datetime import datetime
 import pytz
 
