@@ -124,7 +124,7 @@ def heartbeats(request, alias_id):
 	current_A.save()
 	new_H = Beat()
 	new_H.tag = datetime.now(tz)
-	new_H.alias = user
+	new_H.alias = current_A
 	new_H.save()
 	heartbeats = Beat.objects.order_by("-tag")[:]
 	context={"alias":current_A, "beats":heartbeats, "new":new_H}
