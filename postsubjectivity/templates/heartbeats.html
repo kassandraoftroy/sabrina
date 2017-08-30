@@ -1,18 +1,19 @@
 <body style='background-color:gray;text-align:center;'>
-<a href="{% url 'contribute' alias.id %}" style='font-size:50px;color:black;text-decoration:none;'>s a b r i n a</a>
+<a href="{% url 'contribute' alias.id %}" style='font-size:50px;color:black;text-decoration:none;'><strong>s a b r i n a</strong></a>
 
+<br>
 ba-boom. <br>
-[ {{new.user}} , {{new.tag}} ]
-
-<span style="font-size:25px;color:white;font-family:impact;">HEARTBEATS</span>
+[ {{new.alias.name}} , {{new.tag}} ]
+<br>
 
 <table style="width:80%;" align="center">
 	{% for b in beats %}
 	<tr>
 		<td style='text-align:left;'>
-		<img style="-webkit-user-select: none;background-position: 0px 0px, 10px 10px;background-size: 20px 20px;background-color: gray;background-image:linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%),linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%);" src="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-10/256/red-heart.png">
+		<img style="-webkit-user-select: none;background-position: 0px 0px, 10px 10px;background-size: 20px 20px;background-color: gray;background-image:linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%),linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%);" src="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-10/256/red-heart.png" width="40" height="40">
 		</td>
 		<td style='text-align:left;font-size:11px;font-family:courier;'>{{b.tag}}</td>
+		<td> user: sabrina</td>
 	</tr>
 	{% endfor %}
 </table>
