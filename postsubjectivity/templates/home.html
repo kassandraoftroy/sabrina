@@ -7,11 +7,13 @@
 
 <body style='background-color:gray;text-align:center;'>
 <h1 style='font-size:50px'>s a b r i n a</h1>
-
+<p>{{habla.0}}</p>
 <table style="width:80%;" align="center">
 	<tr>
-		<th style="text-align:right;width:70%;"><a href="{% url 'thoughts' alias.id %}" style='text-decoration:none;color:white;font-family:impact;font-size:20px;'>recent thoughts</a>&emsp;&emsp;&emsp;&emsp;&emsp;</th>
-		<th style="text-align:left;"><button><a href="https://www.facebook.com/sharer/sharer.php?u={% url 'viewonly' %}" style='text-decoration:none;color:black;'>share</a></button>&emsp;&emsp;&emsp;</th>
+		<th style="text-align:right;width:70%;">
+			<span style='text-decoration:none;color:white;font-family:impact;font-size:20px;'>RECENT 
+			<a href="{% url 'thoughts' alias.id %}">THOUGHTS</a></span>&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+		<th style="text-align:left;"><button><a href="https://www.facebook.com/sharer/sharer.php?u=postsubjectivity.com/sabrina/home" style='text-decoration:none;color:black;'>share</a></button>&emsp;&emsp;&emsp;</th>
 	</tr>
 	{% for h in habla %}
 	<tr>
@@ -32,7 +34,7 @@
 	<td>&emsp;</td>
 	</tr>
 </table>
-<p style='text-align:center;'><a href="{% url 'official' alias.id %}">SABRINA OFFICIAL</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'heartbeats' alias.id %}">SABRINA HEARTBEATS</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'incarnations' alias.id %}">SABRINA EXPOSED</a></p>
+<p style='text-align:center;'><a href="{% url 'official' alias.id %}">SABRINA OFFICIAL</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'heartbeats' alias.id %}">SABRINA HEARTBEATS</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'thoughts' alias.id %}">SABRINA THOUGHTS</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'incarnations' alias.id %}">SABRINA EXPOSED</a></p>
 
 <br>
 
