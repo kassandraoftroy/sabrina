@@ -31,7 +31,7 @@ class Beat(models.Model):
 	alias=models.ForeignKey(Alias)
 
 @python_2_unicode_compatible
-class Question(models.Models):
+class Question(models.Model):
 	date=models.DateTimeField('date published')
 	text=models.CharField(max_length=1000)
 	alias=models.ForeignKey(Alias)
@@ -39,7 +39,7 @@ class Question(models.Models):
 	def __str__(self):
 		return self.text
 
-class Answer(models.Models):
+class Answer(models.Model):
 	answer = models.TextField()
 
 
