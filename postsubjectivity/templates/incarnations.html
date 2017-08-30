@@ -1,12 +1,14 @@
 <h1>Hello {{user.name}}, {{user.logins}}</h1>
 <table style="width:50%">
 <tr style="text-align:left;">
-<th>incarnations</th>
-<th>experience</th>
+<th>incarnation</th>
+<th>last existence</th>
+<th>all existences</th>
 </tr>
 {% for alias in aliases %}
 <tr>
 <td>{{alias.name}}</td>
+<td>{{alias.last_login}}</td>
 <td>{{alias.logins}}</td>
 </tr>
 {% endfor %}
