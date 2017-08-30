@@ -66,6 +66,9 @@ def only_view(request):
 def contribute(request, alias_id):
 	try:
 		current_A = Alias.objects.get(id=alias_id)
+		current_A.logins += 1
+		current_A.last_login = datetime.now(tz)
+		current_A.save()
 	except:
 		latest_habla=Habla.objects.order_by('-id')[0:5]
 		latest_habla=list(reversed(latest_habla))[0:5]
@@ -107,18 +110,24 @@ def contribute(request, alias_id):
 
 def incarnations(request, alias_id):
 	aliases=Alias.objects.order_by("-last_login")[:]
-	user=Alias.objects.get(id=alias_id)
-	context={"aliases":aliases, "user":user}
+	current_A = Alias.objects.get(id=alias_id)
+	current_A.logins += 1
+	current_A.last_login = datetime.now(tz)
+	current_A.save()
+	context={"aliases":aliases, "user":current_A}
 	return render(request, "incarnations.html", context)
 
 def heartbeats(request, alias_id):
-	user=Alias.objects.get(id=alias_id)
+	current_A = Alias.objects.get(id=alias_id)
+	current_A.logins += 1
+	current_A.last_login = datetime.now(tz)
+	current_A.save()
 	new_H = Beat()
 	new_H.tag = datetime.now(tz)
 	new_H.alias = user
 	new_H.save()
 	heartbeats = Beat.objects.order_by("-tag")[:]
-	context={"alias":user, "beats":heartbeats, "new":new_H}
+	context={"alias":current_A, "beats":heartbeats, "new":new_H}
 	return render(request, "heartbeats.html", context)
 
 def official(request, alias_id):
@@ -126,6 +135,9 @@ def official(request, alias_id):
 
 def thoughts(request, alias_id):
 	current_A = Alias.objects.get(id=alias_id)
+	current_A.logins += 1
+	current_A.last_login = datetime.now(tz)
+	current_A.save()
 	latest_habla=Habla.objects.order_by('-id')[0:25]
 	latest_habla=list(reversed(latest_habla))[0:25]
 	show_habla=[(h.text, h.date) for h in latest_habla]
