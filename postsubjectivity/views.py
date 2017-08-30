@@ -48,6 +48,10 @@ def home(request):
 		context={"alias":current_A, "habla":show_habla}
 		return render(request, "home.html", context)
 	except:
+		latest_habla=Habla.objects.order_by('-id')[0:3]
+		latest_habla=list(reversed(latest_habla))[0:3]
+		show_habla=[(h.text, h.date) for h in latest_habla]
+		context={"habla":show_habla}
 		return render(request, "view_only.html", context)
 
 def only_view(request):
