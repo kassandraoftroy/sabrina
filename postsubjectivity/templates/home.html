@@ -3,7 +3,6 @@
 	<meta property='og:image' content ="http://www.psdgraphics.com/wp-content/uploads/2013/06/male-female-silhouette.jpg"/>
 	<meta property='og:description' content="want to be sabrina?"/>
 	<meta property="og:type" content="website"/>
-	<meta property="og:url"  content="www.postsubjectivity.com/sabrina/home"
 </head>
 
 <body style='background-color:gray;text-align:center;'>
@@ -13,7 +12,7 @@
 		<th style="text-align:right;width:70%;">
 			<span style='text-decoration:none;color:white;font-family:impact;font-size:25px;'>RECENT 
 			<a href="{% url 'thoughts' alias.id %}" style="color:white;text-decoration-color:white;">THOUGHTS</a></span>&emsp;&emsp;&emsp;&emsp;&emsp;</th>
-		<th style="text-align:left;"><button><a href="https://www.facebook.com/sharer/sharer.php?u=www.postsubjectivity.com/sabrina/{{alias.id}}/home" style='text-decoration:none;color:black;'>share</a></button>&emsp;&emsp;&emsp;</th>
+		<th style="text-align:left;"><a href="https://www.facebook.com/sharer/sharer.php?u=www.postsubjectivity.com/sabrina/view" style='text-decoration:none;color:black;font-size:16px'>share to facebook</a></button>&emsp;&emsp;&emsp;</th>
 	</tr>
 	{% for h in habla %}
 	<tr>
@@ -34,8 +33,9 @@
 	<td>&emsp;</td>
 	</tr>
 </table>
+<h2>SABRINA OFFICIAL UPDATE:</h2>
 <p style='text-align:center;'><a href="{% url 'official' alias.id %}">SABRINA OFFICIAL</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'heartbeats' alias.id %}">SABRINA HEARTBEATS</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'thoughts' alias.id %}">SABRINA THOUGHTS</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'incarnations' alias.id %}">SABRINA EXPOSED</a></p>
 
-<br>
+
 
 
