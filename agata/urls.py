@@ -23,6 +23,7 @@ urlpatterns = [
 	url(r'^sabrina/home/$', views.home, name='home'),
     url(r'^sabrina/view/$', views.only_view, name="viewonly"),
     url(r'^sabrina/(?P<alias_id>[0-9]+)/thoughts/$', views.thoughts, name="thoughts"),
+    url(r'^sabrina/(?P<alias_id>[0-9]+)/questions/$', views.questions, name="questions"),
 	url(r'^sabrina/(?P<alias_id>[0-9]+)/home/$', views.contribute, name="contribute"),
 	url(r'^sabrina/(?P<alias_id>[0-9]+)/heartbeats/$', views.heartbeats, name="heartbeats"),
 	url(r'^sabrina/(?P<alias_id>[0-9]+)/official/$', views.official, name="official"),

@@ -26,6 +26,21 @@ class Habla(models.Model):
 	def __str__(self):
 		return self.text
 
+class Beat(models.Model):
+	tag=models.DateTimeField('tag')
+	alias=models.ForeignKey(Alias)
+
+@python_2_unicode_compatible
+class Question(model.Models):
+	date=models.DateTimeField('date published')
+	text=models.CharField(max_length=1000)
+	alias=models.ForeignKey(Alias)
+
+	def __str__(self):
+		return self.text
+
+class Answer(model.Models):
+	answer = models.TextField()
 
 
 

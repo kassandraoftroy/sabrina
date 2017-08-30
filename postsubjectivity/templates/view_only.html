@@ -10,7 +10,7 @@
 
 <table style="width:80%;" align="center">
 	<tr>
-		<th style="text-align:right;width:70%;">RECENT THOUGHTS&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+		<th style="text-align:right;width:70%;font-size:21px;color:white;">RECENT THOUGHTS&emsp;&emsp;&emsp;&emsp;&emsp;</th>
 		<th style="text-align:left;">&emsp;&emsp;&emsp;</th>
 	</tr>
 	{% for h in habla %}
@@ -32,4 +32,7 @@
 	<td>&emsp;</td>
 	</tr>
 </table>
-<p style='text-align:center;'><a href="{% url 'enter' %}">SABRINA OFFICIAL</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'enter' %}">SABRINA HEARTBEATS</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'enter' %}">SABRINA EXPOSED</a></p>
+<h2>SABRINA OFFICIAL UPDATE:</h2>
+questions now exist for sabrina. <a href="{% url 'enter' %}">ask sabrina questions</a>
+
+<p style='text-align:center;'><a href="{% url 'enter' %}">sabrina official</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'enter' %}">sabrina heartbeats</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'enter' %}">sabrina thoughts</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'enter' %}">sabrina exposed</a></p>
