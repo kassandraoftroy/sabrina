@@ -32,6 +32,7 @@ def home(request):
 		for A in all_A:
 			if A.name == x:
 				A.logins+=1
+				A.last_login=datetime.now(tz)
 				A.save()
 				current_A = A
 				count +=1
@@ -39,6 +40,7 @@ def home(request):
 			new_A = Alias()
 			new_A.name = x
 			new_A.date = datetime.now(tz)
+			new_A.last_login = datetime.now(tz)
 			new_A.logins = 1
 			new_A.save()
 			current_A = new_A
@@ -104,7 +106,7 @@ def contribute(request, alias_id):
 		return render(request, "home.html", context)
 
 def incarnations(request, alias_id):
-	aliases=Alias.objects.order_by("-logins")[:]
+	aliases=Alias.objects.order_by("-last_login")[:]
 	user=Alias.objects.get(id=alias_id)
 	context={"aliases":aliases, "user":user}
 	return render(request, "incarnations.html", context)

@@ -13,6 +13,7 @@ class Alias(models.Model):
 	name=models.CharField(max_length=200)
 	date=models.DateTimeField('date created')
 	logins=models.IntegerField()
+	last_login=models.DateTimeField('last log')
 
 	def __str__(self):
 		return self.name
