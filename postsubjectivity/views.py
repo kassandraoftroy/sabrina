@@ -19,9 +19,6 @@ def enter(request):
 def home(request):
 	try:
 		x = "%s" %request.POST["alias"]
-	except:
-		return HttpResponse("posting error")
-	try:
 		count = 0
 		for char in x:
 			if char == ' ':
@@ -30,9 +27,6 @@ def home(request):
 				count +=100000
 		if count==len(x) or count==0:
 			return render(request, "enter.html")
-	except:
-		return HttpResponse("counting error")
-	try:
 		count = 0
 		all_A = Alias.objects.all()
 		for A in all_A:
@@ -48,19 +42,13 @@ def home(request):
 			new_A.logins = 1
 			new_A.save()
 			current_A = new_A
-	except:
-		return HttpResponse("object add error")
-	try:
 		latest_habla=Habla.objects.order_by('-id')[0:3]
 		latest_habla=list(reversed(latest_habla))[0:3]
 		show_habla=[(h.text, h.date) for h in latest_habla]
 		context={"alias":current_A, "habla":show_habla}
-	except:
-		return HttpResponse("context error")
-	try:
 		return render(request, "home.html", context)
 	except:
-		return HttpResponse("render error")
+		return render(request, "view_only.html", context)
 
 def only_view(request):
 	latest_habla=Habla.objects.order_by('-id')[0:3]

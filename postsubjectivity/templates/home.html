@@ -6,12 +6,11 @@
 </head>
 
 <body style='background-color:gray;text-align:center;'>
-{{habla.0}}
 <h1 style='font-size:50px'>s a b r i n a</h1>
 
 <table style="width:80%;" align="center">
 	<tr>
-		<th style="text-align:right;width:70%;"><a href="{% url 'thoughts' %}" style='text-decoration:none;color:white;font-family:impact;font-size:20px;'>recent thoughts</a>&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+		<th style="text-align:right;width:70%;"><a href="{% url 'thoughts' alias.id %}" style='text-decoration:none;color:white;font-family:impact;font-size:20px;'>recent thoughts</a>&emsp;&emsp;&emsp;&emsp;&emsp;</th>
 		<th style="text-align:left;"><button><a href="https://www.facebook.com/sharer/sharer.php?u={% url 'viewonly' %}" style='text-decoration:none;color:black;'>share</a></button>&emsp;&emsp;&emsp;</th>
 	</tr>
 	{% for h in habla %}
