@@ -3,6 +3,7 @@
 	<meta property='og:image' content ="http://www.psdgraphics.com/wp-content/uploads/2013/06/male-female-silhouette.jpg"/>
 	<meta property='og:description' content="want to be sabrina?"/>
 	<meta property="og:type" content="website"/>
+	<meta property="og:url"  content="www.postsubjectivity.com/sabrina/home"
 </head>
 
 <body style='background-color:gray;text-align:center;'>
@@ -12,8 +13,8 @@
 	<tr>
 		<th style="text-align:right;width:70%;">
 			<span style='text-decoration:none;color:white;font-family:impact;font-size:20px;'>RECENT 
-			<a href="{% url 'thoughts' alias.id %}">THOUGHTS</a></span>&emsp;&emsp;&emsp;&emsp;&emsp;</th>
-		<th style="text-align:left;"><button><a href="https://www.facebook.com/sharer/sharer.php?u=postsubjectivity.com/sabrina/home" style='text-decoration:none;color:black;'>share</a></button>&emsp;&emsp;&emsp;</th>
+			<a href="{% url 'thoughts' alias.id %}" style="color:white;text-decoration-color:white;">THOUGHTS</a></span>&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+		<th style="text-align:left;"><button><a href="https://www.facebook.com/sharer/sharer.php?u=www.postsubjectivity.com/sabrina/{{alias.id}}/home" style='text-decoration:none;color:black;'>share</a></button>&emsp;&emsp;&emsp;</th>
 	</tr>
 	{% for h in habla %}
 	<tr>

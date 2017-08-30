@@ -1,8 +1,10 @@
+<body style='background-color:gray;text-align:center;'>
+
 <h1 style='font-size:50px'><a href="{% url 'contribute' alias.id %}">s a b r i n a</a></h1>
 
 <table style="width:80%;" align="center">
 	<tr>
-		<th style="text-align:right;width:70%;"><span style="font-family:impact;color:white;font-size:20px">THOUGHTS</a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+		<th style="text-align:right;width:70%;"><span style="font-family:impact;color:white;font-size:20px">THOUGHTS</span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
 		<th style="text-align:left;">&emsp;&emsp;&emsp;</th>
 	</tr>
 	{% for h in habla %}
@@ -24,4 +26,4 @@
 	<td>&emsp;</td>
 	</tr>
 </table>
-<p style='text-align:center;'><a href="{% url 'official' alias.id %}">SABRINA OFFICIAL</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'heartbeats' alias.id %}">SABRINA HEARTBEATS</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'incarnations' alias.id %}">SABRINA EXPOSED</a></p>
+<p style='text-align:center;'><a href="{% url 'official' alias.id %}">SABRINA OFFICIAL</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'heartbeats' alias.id %}">SABRINA HEARTBEATS</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'incarnations' alias.id %}">SABRINA EXPOSED</a></p></body>
