@@ -3,17 +3,22 @@
 
 <br>
 ba-boom. <br>
-[ {{new.alias.name}}&emsp;,&emsp;{{new.tag}} ]
+[&emsp;{{new.alias.name}}&emsp;,&emsp;{{new.tag}}&emsp;]
 <br>
-
+<br>
+<br>
 <table style="width:80%;" align="center">
 	{% for b in beats %}
 	<tr>
-		<td style="text-align:right;">sabrina:</td>
+	 <th>&emsp;</th>
+	 <td style="text-align:center;color:white;font-family:impact;font-size:21px">HEARTMONITOR</td>
+	 <td style="width:60%">&emsp;</td>
+	<tr>
+		<td style="text-align:right;font-size:16px;"><strong>sabrina:</strong></td>
 		<td style='text-align:left;'>
 		<img style="-webkit-user-select: none;background-position: 0px 0px, 10px 10px;background-size: 20px 20px;background-color: gray;background-image:linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%),linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%);" src="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-10/256/red-heart.png" width="40" height="40">
 		</td>
-		<td style='text-align:left;font-size:11px;font-family:courier;'>{{b.tag}}</td>
+		<td style='text-align:center;font-size:13px;font-family:courier;'>{{b.tag}}</td>
 	</tr>
 	{% endfor %}
 </table>
