@@ -1,0 +1,27 @@
+<h1 style='font-size:50px'><a href="{% url 'contribute' alias.id %}">s a b r i n a</a></h1>
+
+<table style="width:80%;" align="center">
+	<tr>
+		<th style="text-align:right;width:70%;"><span style="font-family:impact;color:white;font-size:20px">thoughts</a>&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+		<th style="text-align:left;"><button><a href="https://www.facebook.com/sharer/sharer.php?u={% url 'viewonly' %}" style='text-decoration:none;color:black;'>share</a></button>&emsp;&emsp;&emsp;</th>
+	</tr>
+	{% for h in habla %}
+	<tr>
+		<td style='text-align:left;font-size:20px;font-family:georgia;'>
+		  <span style='color:darkred;'><strong>sabrina:</strong></span> {{h.0}}
+		</td>
+		<td style='text-align:left;font-size:11px;font-family:courier;'>{{h.1}}</td>
+	</tr>
+	{% endfor %}
+	<tr>
+	<td style="text-align:left;">
+		<form action="{% url 'contribute' alias.id %}" method="post">
+			{% csrf_token %}
+			<span style='color:darkred;font-family:georgia;font-size:20px'><strong>sabrina:</strong>
+			<input type="text" name="talk" style='width:50%'><button type="submit">post</button></span>
+		</form>
+	</td>
+	<td>&emsp;</td>
+	</tr>
+</table>
+<p style='text-align:center;'><a href="{% url 'official' alias.id %}">SABRINA OFFICIAL</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'heartbeats' alias.id %}">SABRINA HEARTBEATS</a>&emsp;&emsp;&emsp;&emsp;<a href="{% url 'incarnations' alias.id %}">SABRINA EXPOSED</a></p>

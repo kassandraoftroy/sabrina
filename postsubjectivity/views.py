@@ -51,13 +51,21 @@ def home(request):
 		return render(request, "enter.html")
 
 def home_view(request):
-	return render(request, "home_view_only.html")
+	latest_habla=Habla.objects.order_by('-id')[0:3]
+	latest_habla=list(reversed(latest_habla))[0:3]
+	show_habla=[(h.text, h.date) for h in latest_habla]
+	context={"habla":show_habla}
+	return render(request, "home_view_only.html", context)
 
 def contribute(request, alias_id):
 	try:
 		current_A = Alias.objects.get(id=alias_id)
 	except:
-		return render(request, "enter.html")
+		latest_habla=Habla.objects.order_by('-id')[0:3]
+		latest_habla=list(reversed(latest_habla))[0:3]
+		show_habla=[(h.text, h.date) for h in latest_habla]
+		context={"habla":show_habla}
+		return render(request, "home_view_only.html", context)
 	try:
 		input_text = request.POST["talk"]
 		spaces = 0
@@ -102,6 +110,15 @@ def heartbeats(request, alias_id):
 
 def official(request, alias_id):
 	return HttpResponse("ok")
+
+def thoughts(request, alias_id):
+	current_A = Alias.objects.get(id=alias_id)
+	latest_habla=Habla.objects.order_by('-id')[0:25]
+	latest_habla=list(reversed(latest_habla))[0:25]
+	show_habla=[(h.text, h.date) for h in latest_habla]
+	context={"alias":current_A, "habla":show_habla}
+	return render(request, "thoughts.html", context)
+
 
 
 
