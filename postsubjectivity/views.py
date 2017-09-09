@@ -155,7 +155,9 @@ def questions(request, alias_id):
 
 def writing(request):
 	Posts = TextPost.objects.all()
-	context = {"Posts":Posts}
+	p = [Posts[1], Posts[0]]
+	p.extend(Posts[2:])
+	context = {"Posts":p}
 	return render(request, "writings.html", context)
 
 
