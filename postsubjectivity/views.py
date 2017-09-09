@@ -3,15 +3,20 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.http import HttpResponse
-from models import Alias, Habla, Beat
+from models import Alias, Habla, Beat, TextPost
 from datetime import datetime
+import random
 import pytz
 
 tz = pytz.timezone('America/Santiago')
 
 
 def index(request):
-	return render(request, "index.html")
+	Posts = TextPost.objects.all()
+	choose_text = random.choice([post.t.upper() for post in Posts])
+	choose_background = random.choice(["maroon", "aliceblue", "gold", "darkolivegreen", "lavender", "slateblue", "bisque"])
+	context = {{"bg":choose_background, "a_text":choose_text}}
+	return render(request, "index.html", context)
 
 def enter(request):
 	return render(request, "enter.html")
@@ -146,6 +151,15 @@ def thoughts(request, alias_id):
 
 def questions(request, alias_id):
 	return HttpResponse("ok")
+
+def writing(request):
+	Posts = TextPost.objects.all()
+	choose_background = random.choice(["maroon", "aliceblue", "gold", "darkolivegreen", "lavender", "slateblue", "bisque"])
+	context = {"Posts":Posts, "bg":choose_background}
+	return render(request, "writings.html", context)
+
+
+
 
 
 

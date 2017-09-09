@@ -28,5 +28,6 @@ urlpatterns = [
 	url(r'^sabrina/(?P<alias_id>[0-9]+)/heartbeats/$', views.heartbeats, name="heartbeats"),
 	url(r'^sabrina/(?P<alias_id>[0-9]+)/official/$', views.official, name="official"),
 	url(r'^sabrina/(?P<alias_id>[0-9]+)/incarnations/$', views.incarnations, name="incarnations"),
+    url(r'^writing/$', views.writing, name="writing")
     url(r'^admin/', admin.site.urls),
 ]
