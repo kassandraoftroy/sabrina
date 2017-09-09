@@ -154,6 +154,7 @@ def questions(request, alias_id):
 
 def writing(request):
 	Posts = TextPost.objects.all()
+	random.shuffle(Posts)
 	choose_background = random.choice(["maroon", "aliceblue", "gold", "darkolivegreen", "lavender", "slateblue", "bisque"])
 	context = {"Posts":Posts, "bg":choose_background}
 	return render(request, "writings.html", context)
