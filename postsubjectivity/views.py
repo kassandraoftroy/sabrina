@@ -15,7 +15,7 @@ def index(request):
 	Posts = TextPost.objects.all()
 	choose_text = random.choice([post.t.upper() for post in Posts])
 	choose_background = random.choice(["maroon", "aliceblue", "gold", "darkolivegreen", "lavender", "slateblue", "bisque"])
-	context = {{"bg":choose_background, "a_text":choose_text}}
+	context = {"bg":choose_background, "a_text":choose_text}
 	return render(request, "index.html", context)
 
 def enter(request):
