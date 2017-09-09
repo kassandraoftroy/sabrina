@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from models import Alias, Habla, Beat, TextPost
 from datetime import datetime
 import random
+from itertools import combinations_with_replacement
 import pytz
 
 tz = pytz.timezone('America/Santiago')
@@ -154,8 +155,10 @@ def questions(request, alias_id):
 
 def writing(request):
 	Posts = TextPost.objects.all()
-	choose_background = random.choice(["maroon", "aliceblue", "gold", "darkolivegreen", "lavender", "slateblue", "bisque"])
-	context = {"Posts":Posts, "bg":choose_background}
+	random.shuffle(Posts)
+	colors = ["maroon", "aliceblue", "gold", "darkolivegreen", "lavender", "slateblue", "bisque"]
+	bgs = list(combinations_with_replacement(colors, len(Posts)))
+	context = {"Posts":Posts, "backgrounds":bgs}
 	return render(request, "writings.html", context)
 
 
