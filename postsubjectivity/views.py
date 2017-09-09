@@ -155,10 +155,7 @@ def questions(request, alias_id):
 
 def writing(request):
 	Posts = TextPost.objects.all()
-	colors = ["maroon", "aliceblue", "gold", "darkolivegreen", "lavender", "slateblue", "bisque"]
-	color_combos = list(combinations_with_replacement(colors, len(Posts)))
-	n = random.randint(10,len(posts)-10)
-	context = {"Posts":Posts, "bgs":color_combos[n]}
+	context = {"Posts":Posts}
 	return render(request, "writings.html", context)
 
 
