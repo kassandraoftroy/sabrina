@@ -157,7 +157,9 @@ def writing(request):
 	Posts = TextPost.objects.all()
 	random.shuffle(Posts)
 	colors = ["maroon", "aliceblue", "gold", "darkolivegreen", "lavender", "slateblue", "bisque"]
-	bgs = list(combinations_with_replacement(colors, len(Posts)))
+	color_combos = list(combinations_with_replacement(colors, len(Posts)))
+	random.shuffle(color_combos)
+	bgs = color_combos[0]
 	context = {"Posts":Posts, "backgrounds":bgs}
 	return render(request, "writings.html", context)
 
