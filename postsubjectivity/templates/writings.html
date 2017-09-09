@@ -1,6 +1,9 @@
 <h1 style='font-size:50px;'><a href="{% url 'enter' %}" style="color:black;text-decoration:none;">s a b r i n a</a></h1>
+
 {% for post in Posts %}
+
 <h3>{{post.title}}</h3>
 <p>{{post.t}}</p>
 <br><br>
+
 {% endfor %}
