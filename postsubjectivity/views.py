@@ -23,7 +23,6 @@ def enter(request):
 	return render(request, "enter.html")
 
 def home(request):
-	return HttpResponse("hi")
 	try:
 		x = "%s" %request.POST["alias"]
 		count = 0
@@ -35,29 +34,35 @@ def home(request):
 		if count==0:
 			return render(request, "enter.html")
 	except:
-		return HttpResponse("fcked up here.")
-	count = 0
-	all_A = Alias.objects.all()
-	for A in all_A:
-		if A.name == x:
-			A.logins+=1
-			A.last_login=datetime.now(tz)
-			A.save()
-			current_A = A
-			count +=1
-	if count == 0:
-		new_A = Alias()
-		new_A.name = x
-		new_A.date = datetime.now(tz)
-		new_A.last_login = datetime.now(tz)
-		new_A.logins = 1
-		new_A.save()
-		current_A = new_A
-	latest_habla=Habla.objects.order_by('-id')[0:5]
-	latest_habla=list(reversed(latest_habla))[0:5]
-	show_habla=[(h.text, h.date) for h in latest_habla]
-	context={"alias":current_A, "habla":show_habla}
-	return render(request, "home.html", context)
+		return HttpResponse("hi")
+	try:
+		count = 0
+		all_A = Alias.objects.all()
+		for A in all_A:
+			if A.name == x:
+				A.logins+=1
+				A.last_login=datetime.now(tz)
+				A.save()
+				current_A = A
+				count +=1
+		if count == 0:
+			new_A = Alias()
+			new_A.name = x
+			new_A.date = datetime.now(tz)
+			new_A.last_login = datetime.now(tz)
+			new_A.logins = 1
+			new_A.save()
+			current_A = new_A
+		latest_habla=Habla.objects.order_by('-id')[0:5]
+		latest_habla=list(reversed(latest_habla))[0:5]
+		show_habla=[(h.text, h.date) for h in latest_habla]
+		context={"alias":current_A, "habla":show_habla}
+	except:
+		return HttpResponse("hi2")
+	try:
+		return render(request, "home.html", context)
+	except:
+		return HttpResponse("hi3")
 
 def contribute(request, alias_id):
 	try:
