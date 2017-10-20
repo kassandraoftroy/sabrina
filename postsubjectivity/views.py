@@ -23,16 +23,18 @@ def enter(request):
 	return render(request, "enter.html")
 
 def home(request):
-
-	x = "%s" %request.POST["alias"]
-	count = 0
-	for char in x:
-		if char == ' ':
-			count +=1
-		else:
-			count +=100000
-	if count==0:
-		return render(request, "enter.html")
+	try:
+		x = "%s" %request.POST["alias"]
+		count = 0
+		for char in x:
+			if char == ' ':
+				count +=1
+			else:
+				count +=100000
+		if count==0:
+			return render(request, "enter.html")
+	except:
+		return HttpResponse("fcked up here.")
 	count = 0
 	all_A = Alias.objects.all()
 	for A in all_A:
