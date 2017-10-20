@@ -23,51 +23,38 @@ def enter(request):
 	return render(request, "enter.html")
 
 def home(request):
-	try:
-		x = "%s" %request.POST["alias"]
-		count = 0
-		for char in x:
-			if char == ' ':
-				count +=1
-			else:
-				count +=100000
-		if count==len(x) or count==0:
-			return render(request, "enter.html")
-		count = 0
-		all_A = Alias.objects.all()
-		for A in all_A:
-			if A.name == x:
-				A.logins+=1
-				A.last_login=datetime.now(tz)
-				A.save()
-				current_A = A
-				count +=1
-		if count == 0:
-			new_A = Alias()
-			new_A.name = x
-			new_A.date = datetime.now(tz)
-			new_A.last_login = datetime.now(tz)
-			new_A.logins = 1
-			new_A.save()
-			current_A = new_A
-		latest_habla=Habla.objects.order_by('-id')[0:5]
-		latest_habla=list(reversed(latest_habla))[0:5]
-		show_habla=[(h.text, h.date) for h in latest_habla]
-		context={"alias":current_A, "habla":show_habla}
-		return render(request, "home.html", context)
-	except:
-		latest_habla=Habla.objects.order_by('-id')[0:5]
-		latest_habla=list(reversed(latest_habla))[0:5]
-		show_habla=[(h.text, h.date) for h in latest_habla]
-		context={"habla":show_habla}
-		return render(request, "view_only.html", context)
 
-def only_view(request):
+	x = "%s" %request.POST["alias"]
+	count = 0
+	for char in x:
+		if char == ' ':
+			count +=1
+		else:
+			count +=100000
+	if count==0:
+		return render(request, "enter.html")
+	count = 0
+	all_A = Alias.objects.all()
+	for A in all_A:
+		if A.name == x:
+			A.logins+=1
+			A.last_login=datetime.now(tz)
+			A.save()
+			current_A = A
+			count +=1
+	if count == 0:
+		new_A = Alias()
+		new_A.name = x
+		new_A.date = datetime.now(tz)
+		new_A.last_login = datetime.now(tz)
+		new_A.logins = 1
+		new_A.save()
+		current_A = new_A
 	latest_habla=Habla.objects.order_by('-id')[0:5]
 	latest_habla=list(reversed(latest_habla))[0:5]
 	show_habla=[(h.text, h.date) for h in latest_habla]
-	context={"habla":show_habla}
-	return render(request, "view_only.html", context)
+	context={"alias":current_A, "habla":show_habla}
+	return render(request, "home.html", context)
 
 def contribute(request, alias_id):
 	try:
@@ -76,11 +63,7 @@ def contribute(request, alias_id):
 		current_A.last_login = datetime.now(tz)
 		current_A.save()
 	except:
-		latest_habla=Habla.objects.order_by('-id')[0:5]
-		latest_habla=list(reversed(latest_habla))[0:5]
-		show_habla=[(h.text, h.date) for h in latest_habla]
-		context={"habla":show_habla}
-		return render(request, "view_only.html", context)
+		return HttpResponse("if I don't know who you are I don't know who I am")
 	try:
 		input_text = request.POST["talk"]
 		spaces = 0
