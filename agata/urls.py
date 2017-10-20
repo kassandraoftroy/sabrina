@@ -21,7 +21,6 @@ urlpatterns = [
 	url(r'^$', views.index, name='root'),
 	url(r'^sabrina/$', views.enter, name="enter"),
 	url(r'^sabrina/home/$', views.home, name='home'),
-    url(r'^sabrina/view/$', views.only_view, name="viewonly"),
     url(r'^sabrina/(?P<alias_id>[0-9]+)/thoughts/$', views.thoughts, name="thoughts"),
     url(r'^sabrina/(?P<alias_id>[0-9]+)/questions/$', views.questions, name="questions"),
 	url(r'^sabrina/(?P<alias_id>[0-9]+)/home/$', views.contribute, name="contribute"),
