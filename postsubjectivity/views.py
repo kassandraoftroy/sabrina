@@ -23,6 +23,7 @@ def enter(request):
 	return render(request, "enter.html")
 
 def home(request):
+	return HttpResponse("hi")
 	try:
 		x = "%s" %request.POST["alias"]
 		count = 0
