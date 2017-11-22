@@ -28,7 +28,7 @@
 	$("#images").hide();
 	var color = "black";
 	var current = "{{new_text}}";
-	var insta_tags = '{{image_links}}';
+	var insta_tags = ['{{image_links.0}}', '{{image_links.1}}', '{{image_links.2}}'];
 	var all_insta = document.getElementsByClassName('insta');
 	for(i=0;i<all_insta.length;i++){all_insta[i].innerHTML=insta_tags[i];}
 	document.getElementById('texts').innerHTML = current;
