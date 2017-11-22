@@ -30,36 +30,39 @@
 	var body = document.getElementById('body');
 	window.onload = function() {
 		setInterval(function(){
-			$("#texts").hide();
-			$.ajax({
-				url: "{% url 'index_ajax' %}",
-				data: {'last_text': current},
-				success: function (data) {
-					body.style.backgroundColor = "white";
-					body.style.color = "black";
-					color = "black";
-					count += 1;
-					$("#link").hide();
-					document.getElementById('link').innerHTML = links[count%2];
-					document.getElementById('link').style.color = color;
-					document.getElementById('link')
-					$("#link").show();
-					output = data.text;
-					document.getElementById('texts').innerHTML = output;
-					current = output;
-					$("#texts").show();
-				}
-			});
+			if (!$('#entry').is(':hidden');){
+				$("#texts").hide();
+				$.ajax({
+					url: "{% url 'index_ajax' %}",
+					data: {'last_text': current},
+					success: function (data) {
+						count += 1;
+						$("#link").hide();
+						document.getElementById('link').innerHTML = links[count%2];
+						document.getElementById('link').style.color = color;
+						$("#link").show();
+						output = data.text;
+						document.getElementById('texts').innerHTML = output;
+						current = output;
+						$("#texts").show();
+						body.style.backgroundColor = "white";
+						body.style.color = "black";
+						color = "black";
+					}
+				});
+			}
 		}, 16000);
 		setInterval(function (){
-			body.style.backgroundColor = "black";
-			body.style.color = "white";
-			color = "white";
-			count += 1;
-			$("#link").hide();
-			document.getElementById('link').innerHTML = links[count%2];
-			document.getElementById('link').style.color = color;
-			$("#link").show();
+			if (!$('#entry').is(':hidden');){
+				body.style.backgroundColor = "black";
+				body.style.color = "white";
+				color = "white";
+				count += 1;
+				$("#link").hide();
+				document.getElementById('link').innerHTML = links[count%2];
+				document.getElementById('link').style.color = color;
+				$("#link").show();
+			}
 		}, 8000);
 
 	};
