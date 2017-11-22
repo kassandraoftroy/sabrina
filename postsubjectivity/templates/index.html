@@ -2,7 +2,7 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 
-<div style="text-align:center;background-color:white;color:black;" id="entry">
+<body style="text-align:center;background-color:white;color:black;" id="entry">
 <br><br>
 <table width="60%" align="center" style="vertical-align:center;">
 	<td>
@@ -11,7 +11,7 @@
 </table>
 <br><br><br><br>
 <a href="#" id="link" style="text-decoration:none;"></a>
-</div>
+</body>
 
 <div style="text-align:center;background-color:white;color:black;" id="images">
 	<img src="https://i.pinimg.com/736x/49/fa/97/49fa9796a2e16d2a52ce8cfd60c69cd2--illustration-design-photographic-prints.jpg">
@@ -21,7 +21,7 @@
 	var color = "black";
 	var current = "{{new_text}}";
 	document.getElementById('texts').innerHTML = current;
-	var links = ["IMAGES", "TEXTS"];
+	var links = ["<strong>IMAGES</strong>", "<strong>TEXTS</strong>"];
 	document.getElementById('link').innerHTML = links[0];
 	document.getElementById('link').style.color = color;
 	var count = 0;
@@ -41,7 +41,7 @@
 					document.getElementById('link').innerHTML = links[count%2];
 					document.getElementById('link').style.color = color;
 					document.getElementById('link')
-					$("#link").show(1000);
+					$("#link").show();
 					output = data.text;
 					document.getElementById('texts').innerHTML = output;
 					current = output;
@@ -57,16 +57,14 @@
 			$("#link").hide();
 			document.getElementById('link').innerHTML = links[count%2];
 			document.getElementById('link').style.color = color;
-			$("#link").show(1000);
+			$("#link").show();
 		}, 8000);
 
 	};
 
 	document.getElementById('link').onclick = function () {
-		if(document.getElementById('link').innnerHTML == "IMAGES"){
-			$("#entry").hide(500);
-			$("#images").show(500);
-		}
+		$("#entry").hide(500);
+		$("#images").show(500);
 	}
 </script>
 
