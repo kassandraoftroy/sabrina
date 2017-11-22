@@ -17,9 +17,7 @@
 	<p style="text-align:left;"><a href="#" id="link2" style="text-decoration:none;color:black;"><strong>SEE TEXT</strong></a></p>
 	<table align="center">
 		{% for i in image_links %}
-		<td style="border:2px solid black;text-align:center;">
-			{{i}}
-		</td>
+		<td id="{{ forloop.counter }}" style="border:2px solid black;text-align:center;"></td>
 		<td>&emsp;&emsp;&emsp;</td>
 		{% endfor %}
 	<br><br>
@@ -30,6 +28,7 @@
 	$("#images").hide();
 	var color = "black";
 	var current = "{{new_text}}";
+	for(i=1;i<4;i++){document.getElementById(i.toString()).innerHTML = "{{image_links."+i.toString()+"}}"; }
 	document.getElementById('texts').innerHTML = current;
 	document.getElementById('link').style.color = color;
 	var body = document.getElementById('body');
