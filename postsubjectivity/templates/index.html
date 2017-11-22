@@ -9,7 +9,7 @@
 	</td>
 </table>
 <br><br><br><br>
-<h3><a id="link"></a></h3>
+<h3><a style= "text-decoration:none;" id="link"></a></h3>
 
 <script>
 	var color = "black"
@@ -31,8 +31,9 @@
 					color = "black";
 					count += 2;
 					$("#h3").hide();
-					document.getElementById('link').innerHTML = links[count%3];
-					document.querySelector('a').style.color = color;
+					document.getElementById('link').innerHTML = links[count%3][1];
+					document.getElementById('link').style.color = color;
+					document.getElementById('link').href = links[count%3][0];
 					$("#h3").show(1000);
 					output = data.text;
 					document.getElementById('texts').innerHTML = output;
@@ -47,8 +48,9 @@
 			color = "white";
 			count += 2;
 			$("#h3").hide();
-			document.querySelector('h3').innerHTML = links[count%3];
-			document.querySelector('a').style.color = color;
+			document.getElementById('link').innerHTML = links[count%3][1];
+			document.getElementById('link').style.color = color;
+			document.getElementById('link').href = links[count%3][0];
 			$("#h3").show(1000);
 		}, 8000);
 
