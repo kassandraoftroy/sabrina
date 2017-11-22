@@ -18,7 +18,7 @@
 		{% for i in image_links %}
 		<td style="border:2px solid black;">
 			<img src='{{i}}'>
-		</td>
+		</td>&emsp;&emsp;&emsp;&emsp;
 		{% endfor %}
 	<br><br>
 </div>
@@ -74,8 +74,8 @@
 	};
 
 	document.getElementById('link').onclick = function () {
-		body.style.backgroundColor = "black";
-		body.style.color = "white";	
+		body.style.backgroundColor = "white";
+		body.style.color = "black";	
 		$("#entry").hide(500);
 		$("#images").show(500);
 	}
