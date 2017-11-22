@@ -36,18 +36,18 @@
 					url: "{% url 'index_ajax' %}",
 					data: {'last_text': current},
 					success: function (data) {
-						count += 1;
 						$("#link").hide();
+						body.style.backgroundColor = "white";
+						body.style.color = "black";
+						color = "black";
+						count += 1;
 						document.getElementById('link').innerHTML = links[count%2];
 						document.getElementById('link').style.color = color;
-						$("#link").show();
 						output = data.text;
 						document.getElementById('texts').innerHTML = output;
 						current = output;
 						$("#texts").show();
-						body.style.backgroundColor = "white";
-						body.style.color = "black";
-						color = "black";
+						$("#link").show();
 					}
 				});
 			}
