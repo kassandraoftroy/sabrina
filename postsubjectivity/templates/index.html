@@ -2,7 +2,8 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 
-<body style="text-align:center;background-color:white;color:black;" id="entry">
+<body style="text-align:center;background-color:white;color:black;" id="body">
+	<div id="entry">
 <br><br>
 <table width="60%" align="center" style="vertical-align:center;">
 	<td>
@@ -10,12 +11,13 @@
 	</td>
 </table>
 <br><br><br><br>
-<a id="link" style="text-decoration:none;"></a>
-</body>
-
+<a href="#" id="link" style="text-decoration:none;"></a>
+</div>
 <div style="text-align:center;background-color:white;color:black;" id="images">
 	<img src="https://i.pinimg.com/736x/49/fa/97/49fa9796a2e16d2a52ce8cfd60c69cd2--illustration-design-photographic-prints.jpg">
 </div>
+</body>
+
 <script>
 	$("#images").hide();
 	var color = "black";
@@ -25,7 +27,7 @@
 	document.getElementById('link').innerHTML = links[0];
 	document.getElementById('link').style.color = color;
 	var count = 0;
-	var entry = document.getElementById('entry');
+	var body = document.getElementById('body');
 	window.onload = function() {
 		setInterval(function(){
 			$("#texts").hide();
@@ -33,8 +35,8 @@
 				url: "{% url 'index_ajax' %}",
 				data: {'last_text': current},
 				success: function (data) {
-					entry.style.backgroundColor = "white";
-					entry.style.color = "black";
+					body.style.backgroundColor = "white";
+					body.style.color = "black";
 					color = "black";
 					count += 1;
 					$("#link").hide();
@@ -50,8 +52,8 @@
 			});
 		}, 16000);
 		setInterval(function (){
-			entry.style.backgroundColor = "black";
-			entry.style.color = "white";
+			body.style.backgroundColor = "black";
+			body.style.color = "white";
 			color = "white";
 			count += 1;
 			$("#link").hide();
