@@ -12,15 +12,18 @@
 <h3 onclick="leave_entry()" id="link"></h3>
 </body>
 
+<div style="text-align:center;background-color:white;color:black;" id="images">
+	<img src="https://i.pinimg.com/736x/49/fa/97/49fa9796a2e16d2a52ce8cfd60c69cd2--illustration-design-photographic-prints.jpg">
+</div>
 <script>
+	$("#images").hide();
 	var color = "black";
 	var current = "{{new_text}}";
 	document.getElementById('texts').innerHTML = current;
-	document.getElementById('link').innerHTML = links[0];
 	var links = ["IMAGES", "TEXTS"];
+	document.getElementById('link').innerHTML = links[0];
 	var count = 0;
 	var entry = document.getElementById('entry');
-	document.querySelector('h3').innerHTML = links[0];
 	window.onload = function() {
 		setInterval(function(){
 			$("#texts").hide();
@@ -32,11 +35,11 @@
 					entry.style.color = "black";
 					color = "black";
 					count += 1;
-					$("#h3").hide();
+					$("#link").hide();
 					document.getElementById('link').innerHTML = links[count%2];
 					document.getElementById('link').style.color = color;
 					document.getElementById('link')
-					$("#h3").show(1000);
+					$("#link").show(1000);
 					output = data.text;
 					document.getElementById('texts').innerHTML = output;
 					current = output;
@@ -49,10 +52,10 @@
 			entry.style.color = "white";
 			color = "white";
 			count += 1;
-			$("#h3").hide();
+			$("#link").hide();
 			document.getElementById('link').innerHTML = links[count%2];
 			document.getElementById('link').style.color = color;
-			$("#h3").show(1000);
+			$("#link").show(1000);
 		}, 8000);
 
 	};
@@ -60,6 +63,7 @@
 	function leave_entry(){
 		if(document.getElementById('link').innnerHTML == "IMAGES"){
 			$("#entry").hide(500);
+			$("#images").show(500);
 		}
 	}
 </script>
