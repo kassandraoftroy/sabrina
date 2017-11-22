@@ -14,9 +14,10 @@
 <a href="#" id="link" style="text-decoration:none;"></a>
 </div>
 <div style="text-align:center;background-color:white;color:black;" id="images">
+	<h2 style="text-align:left;"><a href="%" id="link2" style="text-decoration:none;color:black;"><strong>back</strong></a></h2>
 	<table align="center">
 		{% for i in image_links %}
-		<td style="border:2px solid black;text-align:center;" style="width:300px;">
+		<td style="border:2px solid black;text-align:center;">
 			<img style="vertical-align:middle;" src='{{i}}'>
 		</td>
 		<td>&emsp;&emsp;&emsp;</td>
@@ -79,6 +80,10 @@
 		body.style.color = "black";	
 		$("#entry").hide(500);
 		$("#images").show(500);
+	}
+	document.getElementById('link2').onclick = function () {
+		$("#images").hide(500);
+		$("#entry").show(500);
 	}
 </script>
 
