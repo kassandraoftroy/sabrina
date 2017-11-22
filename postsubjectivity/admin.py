@@ -7,3 +7,4 @@ from models import Alias, Habla, TextPost
 admin.site.register(Habla)
 admin.site.register(Alias)
 admin.site.register(TextPost)
+admin.site.register(ImagePost)
