@@ -2,7 +2,7 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 
-<body style="text-align:center;background-color:white;color:black;" id="entry">
+<div style="text-align:center;background-color:white;color:black;" id="entry">
 <br><br>
 <table width="60%" align="center" style="vertical-align:center;">
 	<td>
@@ -10,8 +10,8 @@
 	</td>
 </table>
 <br><br><br><br>
-<h3 href="#" id="link"></h3>
-</body>
+<a href="#" id="link" style="text-decoration:none;"></a>
+</div>
 
 <div style="text-align:center;background-color:white;color:black;" id="images">
 	<img src="https://i.pinimg.com/736x/49/fa/97/49fa9796a2e16d2a52ce8cfd60c69cd2--illustration-design-photographic-prints.jpg">
@@ -23,6 +23,7 @@
 	document.getElementById('texts').innerHTML = current;
 	var links = ["IMAGES", "TEXTS"];
 	document.getElementById('link').innerHTML = links[0];
+	document.getElementById('link').style.color = color;
 	var count = 0;
 	var entry = document.getElementById('entry');
 	window.onload = function() {
