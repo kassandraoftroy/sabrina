@@ -1,7 +1,7 @@
 <head>
 </head>
 
-<div style="text-align:center;background-color:white;color:black;" id="entry">
+<body style="text-align:center;background-color:white;color:black;" id="entry">
 <br><br>
 <table width="60%" align="center" style="vertical-align:center;">
 	<td>
@@ -10,12 +10,9 @@
 </table>
 <br><br><br><br>
 <h3 onclick="leave_entry()" id="link"></h3>
-</div>
-<div style="text-align:center;background-color:white;color:black;" id="images">
-	<img src="https://i.pinimg.com/736x/49/fa/97/49fa9796a2e16d2a52ce8cfd60c69cd2--illustration-design-photographic-prints.jpg">
-</div>
+</body>
+
 <script>
-	$("#images").hide();
 	var color = "black";
 	var current = "{{new_text}}";
 	document.getElementById('texts').innerHTML = current;
@@ -63,7 +60,6 @@
 	function leave_entry(){
 		if(document.getElementById('link').innnerHTML == "IMAGES"){
 			$("#entry").hide(500);
-			$("#images").show(500);
 		}
 	}
 </script>
