@@ -1,7 +1,7 @@
 <head>
 </head>
 
-<body style="text-align:center;background-color:white;color:black;" id="body">
+<div style="text-align:center;background-color:white;color:black;" id="entry">
 <br><br>
 <table width="60%" align="center" style="vertical-align:center;">
 	<td>
@@ -9,15 +9,20 @@
 	</td>
 </table>
 <br><br><br><br>
-<h3><a style= "text-decoration:none;" id="link"></a></h3>
-
+<h3 onclick="leave_entry()" id="link"></h3>
+</div>
+<div style="text-align:center;background-color:white;color:black;" id="images">
+	<img src="https://i.pinimg.com/736x/49/fa/97/49fa9796a2e16d2a52ce8cfd60c69cd2--illustration-design-photographic-prints.jpg">
+</div>
 <script>
-	var color = "black"
+	$("#images").hide();
+	var color = "black";
 	var current = "{{new_text}}";
 	document.getElementById('texts').innerHTML = current;
-	var links = [['https://i.pinimg.com/736x/49/fa/97/49fa9796a2e16d2a52ce8cfd60c69cd2--illustration-design-photographic-prints.jpg', "IMAGES"],['{% url "writing" %}',"TEXTS"], ['{% url "writing" %}', "SABRINA"]]
+	document.getElementById('link').innerHTML = links[0];
+	var links = ["IMAGES", "TEXTS"];
 	var count = 0;
-	var body = document.getElementById('body');
+	var entry = document.getElementById('entry');
 	document.querySelector('h3').innerHTML = links[0];
 	window.onload = function() {
 		setInterval(function(){
@@ -29,11 +34,11 @@
 					body.style.backgroundColor = "white";
 					body.style.color = "black";
 					color = "black";
-					count += 2;
+					count += 1;
 					$("#h3").hide();
-					document.getElementById('link').innerHTML = links[count%3][1];
+					document.getElementById('link').innerHTML = links[count%2];
 					document.getElementById('link').style.color = color;
-					document.getElementById('link').href = links[count%3][0];
+					document.getElementById('link')
 					$("#h3").show(1000);
 					output = data.text;
 					document.getElementById('texts').innerHTML = output;
@@ -43,18 +48,24 @@
 			});
 		}, 16000);
 		setInterval(function (){
-			body.style.backgroundColor = "black";
-			body.style.color = "white";
+			entry.style.backgroundColor = "black";
+			entry.style.color = "white";
 			color = "white";
-			count += 2;
+			count += 1;
 			$("#h3").hide();
-			document.getElementById('link').innerHTML = links[count%3][1];
+			document.getElementById('link').innerHTML = links[count%2];
 			document.getElementById('link').style.color = color;
-			document.getElementById('link').href = links[count%3][0];
 			$("#h3").show(1000);
 		}, 8000);
 
 	};
+
+	function leave_entry(){
+		if(document.getElementById('link').innnerHTML == "IMAGES"){
+			$("#entry").hide(500);
+			$("#images").show(500);
+		}
+	}
 </script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
