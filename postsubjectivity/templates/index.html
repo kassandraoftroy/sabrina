@@ -30,7 +30,7 @@
 	var body = document.getElementById('body');
 	window.onload = function() {
 		setInterval(function(){
-			if (!$('#entry').is(':hidden');){
+			if(!$('#entry').is(':hidden')){
 				$("#texts").hide();
 				$.ajax({
 					url: "{% url 'index_ajax' %}",
@@ -53,7 +53,7 @@
 			}
 		}, 16000);
 		setInterval(function (){
-			if (!$('#entry').is(':hidden');){
+			if (!$('#entry').is(':hidden')){
 				body.style.backgroundColor = "black";
 				body.style.color = "white";
 				color = "white";
