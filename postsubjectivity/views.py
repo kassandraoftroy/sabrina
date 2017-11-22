@@ -14,7 +14,6 @@ tz = pytz.timezone('America/Santiago')
 
 def index_ajax(request):
 	last = request.GET.get("last_text", None);
-	print last
 	Posts = TextPost.objects.all()
 	data = {"text":random.choice([post.t.upper() for post in Posts if post.t.upper()!=last])}
 	return JsonResponse(data)
