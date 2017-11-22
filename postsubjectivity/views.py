@@ -20,7 +20,7 @@ def index_ajax(request):
 
 def index(request):
 	Posts = TextPost.objects.all()
-	context = {"new_text":random.choice([post.t.upper() for post in Posts]), "image_links":[i.src for i in ImagePost.objects.all()]}
+	context = {"new_text":random.choice([post.t.upper() for post in Posts]), "image_links":[i.embedding for i in ImagePost.objects.all()]}
 	return render(request, "index.html", context)
 
 def enter(request):

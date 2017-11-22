@@ -9,7 +9,7 @@ class TextPost(models.Model):
 	t = models.TextField()
 
 class ImagePost(models.Model):
-	src = models.CharField(max_length=1000)
+	embedding = models.CharField(max_length=5000, default="")
 
 @python_2_unicode_compatible
 class Alias(models.Model):
