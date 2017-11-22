@@ -8,6 +8,9 @@ class TextPost(models.Model):
 	title = models.CharField(max_length=500)
 	t = models.TextField()
 
+class ImagePost(models.Model):
+	src = models.CharField(max_length=1000)
+
 @python_2_unicode_compatible
 class Alias(models.Model):
 	name=models.CharField(max_length=200)
@@ -30,18 +33,6 @@ class Habla(models.Model):
 class Beat(models.Model):
 	tag=models.DateTimeField('tag')
 	alias=models.ForeignKey(Alias)
-
-@python_2_unicode_compatible
-class Question(models.Model):
-	date=models.DateTimeField('date published')
-	text=models.CharField(max_length=1000)
-	alias=models.ForeignKey(Alias)
-
-	def __str__(self):
-		return self.text
-
-class Answer(models.Model):
-	answer = models.TextField()
 
 
 

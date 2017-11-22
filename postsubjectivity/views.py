@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from models import Alias, Habla, Beat, TextPost
+from models import Alias, Habla, Beat, TextPost, ImagePost
 from datetime import datetime
 import random
 from itertools import combinations_with_replacement
@@ -20,7 +20,7 @@ def index_ajax(request):
 
 def index(request):
 	Posts = TextPost.objects.all()
-	context = {"new_text":random.choice([post.t.upper() for post in Posts])}
+	context = {"new_text":random.choice([post.t.upper() for post in Posts]), "image_links":[i.src for i in ImagePost.objects.all()]}
 	return render(request, "index.html", context)
 
 def enter(request):
