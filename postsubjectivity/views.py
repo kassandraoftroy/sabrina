@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from models import Alias, Habla, Beat, TextPost
 from datetime import datetime
 import random
@@ -12,11 +12,16 @@ import pytz
 tz = pytz.timezone('America/Santiago')
 
 
+def index_ajax(request):
+	last = request.GET.get("last_text", None);
+	print last
+	Posts = TextPost.objects.all()
+	data = {"text":random.choice([post.t.upper() for post in Posts if post.t.upper()!=last])}
+	return JsonResponse(data)
+
 def index(request):
 	Posts = TextPost.objects.all()
-	choose_text = random.choice([post.t.upper() for post in Posts])
-	choose_background = random.choice(["maroon", "aliceblue", "gold", "darkolivegreen", "lavender", "slateblue", "bisque"])
-	context = {"bg":choose_background, "a_text":choose_text}
+	context = {"new_text":random.choice([post.t.upper() for post in Posts])}
 	return render(request, "index.html", context)
 
 def enter(request):

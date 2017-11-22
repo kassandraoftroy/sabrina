@@ -20,6 +20,7 @@ from postsubjectivity import views
 urlpatterns = [
 	url(r'^$', views.index, name='root'),
 	url(r'^sabrina/$', views.enter, name="enter"),
+    url(r'^indexajax/$', views.index_ajax, name="index_ajax"),
 	url(r'^sabrina/home/$', views.home, name='home'),
     url(r'^sabrina/(?P<alias_id>[0-9]+)/thoughts/$', views.thoughts, name="thoughts"),
     url(r'^sabrina/(?P<alias_id>[0-9]+)/questions/$', views.questions, name="questions"),

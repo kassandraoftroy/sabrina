@@ -1,17 +1,60 @@
-<body style="text-align:center;background-color:{{bg}};">
-<br>
-<h4>{{a_text}}</h4>
-<br>
-</body>
-<span style="text-align:left;">
-<br>
-<br>
-<br>
-<a href="https://i.pinimg.com/736x/49/fa/97/49fa9796a2e16d2a52ce8cfd60c69cd2--illustration-design-photographic-prints.jpg">fanzines</a>
-<br>
-<a href= "{% url 'writing' %}">political poetry</a>
-<br>
-<a href="{% url 'enter' %}">public sabrina project</a>
-</span>
+<head>
+</head>
+
+<body style="text-align:center;background-color:white;color:black;" id="body">
+<br><br>
+<table width="60%" align="center" style="vertical-align:center;">
+	<td>
+		<h4 id="texts" style="text-align:center;vertical-align:center;"></h4>
+	</td>
+</table>
+<br><br><br><br>
+<h3><a id="link"></a></h3>
+
+<script>
+	var color = "black"
+	var current = "{{new_text}}";
+	document.getElementById('texts').innerHTML = current;
+	var links = [['https://i.pinimg.com/736x/49/fa/97/49fa9796a2e16d2a52ce8cfd60c69cd2--illustration-design-photographic-prints.jpg', "IMAGES"],['{% url "writing" %}',"TEXTS"], ['{% url "writing" %}', "SABRINA"]]
+	var count = 0;
+	var body = document.getElementById('body');
+	document.querySelector('h3').innerHTML = links[0];
+	window.onload = function() {
+		setInterval(function(){
+			$("#texts").hide();
+			$.ajax({
+				url: "{% url 'index_ajax' %}",
+				data: {'last_text': current},
+				success: function (data) {
+					body.style.backgroundColor = "white";
+					body.style.color = "black";
+					color = "black";
+					count += 2;
+					$("#h3").hide();
+					document.getElementById('link').innerHTML = links[count%3];
+					document.querySelector('a').style.color = color;
+					$("#h3").show(1000);
+					output = data.text;
+					document.getElementById('texts').innerHTML = output;
+					current = output;
+					$("#texts").show();
+				}
+			});
+		}, 16000);
+		setInterval(function (){
+			body.style.backgroundColor = "black";
+			body.style.color = "white";
+			color = "white";
+			count += 2;
+			$("#h3").hide();
+			document.querySelector('h3').innerHTML = links[count%3];
+			document.querySelector('a').style.color = color;
+			$("#h3").show(1000);
+		}, 8000);
+
+	};
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 
 
