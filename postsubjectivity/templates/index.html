@@ -11,7 +11,11 @@
 <br><br><br><br>
 <h3 onclick="leave_entry()" id="link"></h3>
 </div>
+<div style="text-align:center;background-color:white;color:black;" id="images">
+	<img src="https://i.pinimg.com/736x/49/fa/97/49fa9796a2e16d2a52ce8cfd60c69cd2--illustration-design-photographic-prints.jpg">
+</div>
 <script>
+	$("#images").hide();
 	var color = "black";
 	var current = "{{new_text}}";
 	document.getElementById('texts').innerHTML = current;
@@ -27,8 +31,8 @@
 				url: "{% url 'index_ajax' %}",
 				data: {'last_text': current},
 				success: function (data) {
-					body.style.backgroundColor = "white";
-					body.style.color = "black";
+					entry.style.backgroundColor = "white";
+					entry.style.color = "black";
 					color = "black";
 					count += 1;
 					$("#h3").hide();
@@ -58,7 +62,8 @@
 
 	function leave_entry(){
 		if(document.getElementById('link').innnerHTML == "IMAGES"){
-			var bb=0;
+			$("#entry").hide(500);
+			$("#images").show(500);
 		}
 	}
 </script>
